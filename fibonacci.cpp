@@ -1,19 +1,29 @@
-#include <bits/stdc++.h>
-using namespace std;
-int main(){
-  int n;
-  cin>>n;
-  int a[n]={};
-  a[0]=0;
-  a[1]=1;
-  if(n<=2){
-    cout<<a[n-1]<<endl;;
-  }
-  else{
-    for(int i=2;i<n;i++){
-      a[i]=a[i-1]+a[i-2];
+
+    #include<iostream>
+     
+    using namespace std;
+     
+    main()
+    {
+       int n, c, first = 0, second = 1, next;
+     
+       cout << "Enter the number of terms of Fibonacci series you want" << endl;
+       cin >> n;
+     
+       cout << "First " << n << " terms of Fibonacci series are :- " << endl;
+     
+       for ( c = 0 ; c < n ; c++ )
+       {
+          if ( c <= 1 )
+             next = c;
+          else
+          {
+             next = first + second;
+             first = second;
+             second = next;
+          }
+          cout << next << endl;
+       }
+     
+       return 0;
     }
-    cout<<a[n-1]<<endl;
-  }
-  return 0;
-}
